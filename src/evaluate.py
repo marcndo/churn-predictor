@@ -1,10 +1,3 @@
-"""
-Responsibility: Everything related to measuring model performance.
-- Computing metrics: accuracy, precision, recall, F1
-- Generating confusion matrix
-- Comparing multiple models
-- Plotting results.
-"""
 
 
 def evaluate_model(model, X_test, y_test):
