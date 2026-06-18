@@ -5,7 +5,7 @@ held-out test set.
 import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib
-matplot.use("Agg")
+matplotlib.use("Agg")
 import seaborn as sns
 import joblib
 import os
@@ -33,16 +33,16 @@ def evaluate_model(pipeline, X_test, y_test,model_name="XGBoost"):
     Return:
         dic of metric name -> metric value
     """
-    y_pred = pipeline(X_test)
-    y_prob = pipeline.predict_prob(X_test)[:, 1]
+    y_pred = pipeline.predict(X_test)
+    y_prob = pipeline.predict_proba(X_test)[:, 1]
     # compute metrics
-        metrics = {
-        "model":     model_name,
-        "accuracy":  accuracy_score(y_test, y_pred),
-        "precision": precision_score(y_test, y_pred, zero_division=0),
-        "recall":    recall_score(y_test, y_pred, zero_division=0),
-        "f1":        f1_score(y_test, y_pred, zero_division=0),
-        "roc_auc":   roc_auc_score(y_test, y_prob)
+    metrics = {
+    "model":     model_name,
+    "accuracy":  accuracy_score(y_test, y_pred),
+    "precision": precision_score(y_test, y_pred, zero_division=0),
+    "recall":    recall_score(y_test, y_pred, zero_division=0),
+    "f1":        f1_score(y_test, y_pred, zero_division=0),
+    "roc_auc":   roc_auc_score(y_test, y_prob)
     }
 
     return metrics, y_pred, y_prob
@@ -90,14 +90,14 @@ def plot_confusion_matrix(y_test, y_pred, model_name="XGBoost",
     save_path: where to save the plot
     """
     cm = confusion_matrix(y_test, y_pred)
-    plt.plot(figsize=(7,5))
-    sns.heap(
+    plt.figure(figsize=(7,5))
+    sns.heatmap(
         cm,
         fmt="d",
         cmap="Blues",
-        xticklabel=["No Churn", "Churn"],
-        yticklabel=["No Churn", "Churn"],
-        linewidth=0.5
+        xticklabels=["No Churn", "Churn"],
+        yticklabels=["No Churn", "Churn"],
+        linewidths=0.5
     )
     plt.title(f'Confusion Matrix — {model_name}', fontsize=13)
     plt.ylabel('Actual', fontsize=11)
