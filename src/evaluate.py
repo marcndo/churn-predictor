@@ -81,7 +81,7 @@ def print_report(metrics, y_test, y_pred):
 #================================
 
 def plot_confusion_matrix(y_test, y_pred, model_name="XGBoost",
-                           save_path="data/confusion_matrix.png"):
+                        save_path="data/confusion_matrix.png"):
     """
     Plot and save the confusion matrix.
     Args:
@@ -93,6 +93,7 @@ def plot_confusion_matrix(y_test, y_pred, model_name="XGBoost",
     plt.figure(figsize=(7,5))
     sns.heatmap(
         cm,
+        annot=True,
         fmt="d",
         cmap="Blues",
         xticklabels=["No Churn", "Churn"],
