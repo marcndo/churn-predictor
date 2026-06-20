@@ -7,7 +7,7 @@
 .env
 
 # Data
-data/
+data/raw/
 
 # Models
 model/*.pkl

@@ -81,7 +81,7 @@ def print_report(metrics, y_test, y_pred):
 #================================
 
 def plot_confusion_matrix(y_test, y_pred, model_name="XGBoost",
-                        save_path="data/confusion_matrix.png"):
+                        save_path="data/plots/confusion_matrix.png"):
     """
     Plot and save the confusion matrix.
     Args:
@@ -124,7 +124,7 @@ def plot_confusion_matrix(y_test, y_pred, model_name="XGBoost",
 #================================
 
 def plot_feature_importance(pipeline, feature_names,
-                            save_path="data/feature_importance.png",
+                            save_path="data/plots/feature_importance.png",
                             top_n=15):
     """
     Extract and plot feature importance from the trained set.
