@@ -28,7 +28,7 @@ app = FastAPI(
 
 MODEL_PATH = "models/best_model.joblib"
 
-if not os.path.exits(MODEL_PATH):
+if not os.path.exists(MODEL_PATH):
     raise FileNotFoundError(
         f"Model file not found at {MODEL_PATH}. "
         f"Make sure base_model.joblib is commited to repo."
