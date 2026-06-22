@@ -1,0 +1,28 @@
+# Python cache — auto-generated, not needed in container
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment — container installs its own dependencies
+venv/
+
+# Git history — not needed to run the app
+.git/
+.gitignore
+
+# Development tools — not needed in production container
+.pytest_cache/
+tests/
+
+# Notebooks — not needed to run the API
+notebooks/
+
+# Raw data — model is already trained, data not needed at runtime
+data/raw/
+
+# Environment files — secrets are passed as environment variables
+.env
+
+# Mac system file
+.DS_Store
