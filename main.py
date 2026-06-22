@@ -5,7 +5,7 @@ Serves the train churn prediction model as REST API
 Run locally with: univcorn main:app --reload
 """
 
-from fastapi import FastAPI, HttpException
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from typing import Literal
 import joblib
